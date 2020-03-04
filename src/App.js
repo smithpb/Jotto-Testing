@@ -1,13 +1,20 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
 import Guessedwords from "./GuessedWords";
+import Congrats from "./Congrats";
 
-function App() {
-  return (
-    <div className="App">
-      <Guessedwords />
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="container">
+        <h1>Jotto</h1>
+        <Congrats success={true} />
+        <Guessedwords
+          guessedWords={[{ guessedWord: "train", letterMatchCount: 3 }]}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
