@@ -4,6 +4,13 @@ import PropTypes from "prop-types";
 function Input({ secretWord }) {
   const [currentGuess, setCurrentGuess] = React.useState("");
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    // TODO: update guessedWords
+    // TODO: check against secretWord and update succes if needed
+    setCurrentGuess("");
+  };
+
   return (
     <div data-test="component-input">
       <form className="form-inline">
@@ -17,7 +24,7 @@ function Input({ secretWord }) {
         />
         <button
           data-test="submit-button"
-          onClick={e => e.preventDefault()}
+          onClick={event => handleSubmit(event)}
           className="btn btn-primary mb-2"
         >
           Submit
